@@ -1,0 +1,56 @@
+.wrap {
+  position: relative;
+}
+
+.form {
+  padding: 20px;
+  padding-bottom: 5px;
+}
+
+.icon {
+  background-color: transparent;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translate(0, -38%);
+}
+
+.searchInput {
+  border-radius: 3px;
+  border: none;
+  border: 1px solid #20201f;
+  width: 400px;
+  font-size: 16px;
+  padding: 7px 7px 7px 35px;
+}
+.searchInput:focus {
+  border: 2px solid #de4a64;
+}
+
+.noResults {
+  font-size: 16px;
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.listItem {
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid #20201f;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.link {
+  color: #20201f;
+  font-weight: 600;
+  font-size: 18px;
+}
+.list {
+  padding: 20px;
+  padding-top: 5px;
+}

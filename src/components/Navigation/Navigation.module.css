@@ -5,6 +5,7 @@
 .link {
   color: #20201f;
   font-size: 26px;
+  transition: border-color 0.3s ease;
 }
 .nav {
   display: flex;
@@ -13,8 +14,18 @@
 }
 .active {
   color: #de4a64;
+  border-bottom: 3px dotted #de4a64;
+  transition: border-color 0.3s ease;
 }
 
 .header {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.link:hover {
+  border-bottom: 3px dotted #20201f;
+}
+
+.active:hover {
+  border-bottom: 3px dotted #de4a64;
 }

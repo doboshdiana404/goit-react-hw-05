@@ -1,29 +1,48 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchDetailsMovies } from '../../services/api';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import s from './MovieDetailsPage.module.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import { DNA } from 'react-loader-spinner';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
+  const location = useLocation();
+  const goBackRef = useRef(location.state ?? '/movies');
   const [details, setDetails] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getMovieDetails = async () => {
+      setIsLoading(true);
       const details = await fetchDetailsMovies(movieId);
       setDetails(details);
-      console.log(details);
+      setIsLoading(false);
     };
     getMovieDetails();
   }, [movieId]);
+  if (isLoading) {
+    return (
+      <div className={s.load}>
+        <DNA
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
   return (
     <div className={s.sectionDetails}>
-      <Link to="/" className={s.goBack}>
+      <Link to={goBackRef.current} className={s.goBack}>
         <FaArrowLeft />
-        GO back
+        Go back
       </Link>
       <div className={s.itemWrap}>
         <img
           src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
-          alt=""
+          alt={details.overview}
           width={300}
         />
         <div className={s.description}>

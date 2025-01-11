@@ -18,13 +18,16 @@ export const fetchDetailsMovies = async movieId => {
 };
 export const fetchMovieCast = async movieId => {
   const { data } = await axios.get(`/movie/${movieId}/credits`);
-  console.log(data);
 
   return data;
 };
 export const fetchMovieReviews = async movieId => {
   const { data } = await axios.get(`/movie/${movieId}/reviews`);
-  console.log(data.results);
 
   return data;
+};
+export const fetchSearchMovies = async query => {
+  const { data } = await axios.get(`search/movie`, { params: { query } });
+
+  return data.results;
 };
