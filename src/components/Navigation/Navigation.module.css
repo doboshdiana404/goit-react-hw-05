@@ -1,0 +1,20 @@
+.hidden {
+  display: none;
+}
+
+.link {
+  color: #20201f;
+  font-size: 26px;
+}
+.nav {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+}
+.active {
+  color: #de4a64;
+}
+
+.header {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+}

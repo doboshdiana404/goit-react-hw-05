@@ -1,0 +1,18 @@
+.itemRating {
+  padding: 20px;
+  width: 800px;
+  /* max-height: 300px; */
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 1px 1px #20201f;
+}
+
+.description {
+  overflow-y: auto;
+  max-height: 250px;
+}
+
+.listReviews {
+  margin-top: 30px;
+}
