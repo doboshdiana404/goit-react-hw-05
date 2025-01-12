@@ -34,23 +34,6 @@
   text-align: center;
 }
 
-.listItem {
-  width: 500px;
-  border-radius: 5px;
-  border: 1px solid #20201f;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.01);
-  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
-}
-
-.link {
-  color: #20201f;
-  font-weight: 600;
-  font-size: 18px;
-}
-.list {
+.sectionMoviePage {
   padding: 20px;
-  padding-top: 5px;
 }

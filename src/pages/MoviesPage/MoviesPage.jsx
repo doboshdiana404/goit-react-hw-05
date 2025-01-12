@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import s from './MoviesPage.module.css';
 import { fetchSearchMovies } from '../../services/api';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { DNA } from 'react-loader-spinner';
+import MovieList from '../../components/MovieList/MovieList';
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
   const [isLoading, setIsLoading] = useState(false);
   const [queryInput, setQueryInput] = useState('');
-  const location = useLocation();
 
   useEffect(() => {
     if (!query) return;
@@ -33,7 +33,7 @@ const MoviesPage = () => {
     setQueryInput('');
   };
   return (
-    <div>
+    <div className={s.sectionMoviePage}>
       <form onSubmit={handleSubmit} className={s.form}>
         <label className={s.wrap}>
           <input
@@ -62,21 +62,7 @@ const MoviesPage = () => {
           <DNA height={40} width={40} color="#4fa94d" ariaLabel="loading" />
         )}
       </div>
-      {movies.length > 0 && query && (
-        <ul className={s.list}>
-          {movies.map(movie => (
-            <li key={movie.id} className={s.listItem}>
-              <Link
-                to={`/movies/${movie.id}`}
-                className={s.link}
-                state={location}
-              >
-                {movie.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {movies.length > 0 && query && <MovieList movies={movies} />}
       {movies.length < 0 && (
         <p className={s.noResults}>No movies found for {query}.</p>
       )}
